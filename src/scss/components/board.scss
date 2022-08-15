@@ -1,23 +1,17 @@
 .board {
 	display: flex;
 
-	.column {
-		display: flex;
-		flex-direction: column;
-		width: 50%;
-		max-width: 480px;
+	display: flex;
+	flex-direction: column;
+	max-width: 480px;
 
-		&:first-child {
-			margin-right: 8px;
-		}
+	&:first-child {
+		margin-right: 8px;
 	}
 
 	@media screen and (max-width: 484px) {
 		flex-direction: column;
-
-		.column {
-			width: 100%;
-			margin: 0;
-		}
+		width: 100%;
+		margin: 0;
 	}
 }
