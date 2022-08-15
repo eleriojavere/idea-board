@@ -1,0 +1,13 @@
+.sorting {
+	display: flex;
+	margin-bottom: 20px;
+
+	button {
+		&:not(:first-child) {
+			margin-left: 8px;
+		}
+		&.is-active {
+			background-color: rgb(163, 162, 162);
+		}
+	}
+}

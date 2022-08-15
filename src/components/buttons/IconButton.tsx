@@ -3,24 +3,33 @@ import React from "react";
 type ButtonProps = {
 	iconSrc: string;
 	dangerColor?: boolean;
-	onClick: () => void;
+	onClick: (id?: number) => void;
 	className?: string;
+	children?: React.ReactNode;
+	successColor?: boolean;
+	activeButtonId?: number;
+	id?: number;
 };
 
 export default function IconButton({
+	successColor,
 	dangerColor,
 	iconSrc,
 	onClick,
 	className,
+	children,
+	activeButtonId,
+	id,
 }: ButtonProps) {
+
 	return (
 		<button
-			onClick={onClick}
-			className={`icon-button ${
-				dangerColor ? "danger" : "success"
-			} ${className}`}
-		>
+			onClick={() => onClick(id)}
+			className={`icon-button ${dangerColor ? "danger" : ""} ${
+				successColor ? "success" : ""
+			} ${className || ""} ${activeButtonId === id ? "is-active" : ""}`}>
 			<img alt="icon" src={iconSrc} />
+			{children}
 		</button>
 	);
 }

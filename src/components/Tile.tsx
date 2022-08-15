@@ -11,10 +11,12 @@ export default function Tile({
 	data,
 	deleteIdea,
 	maxCharacters,
+	updateDate,
 }: {
 	data: Idea;
 	deleteIdea: (id: number) => void;
 	maxCharacters: number;
+	updateDate: (id: number, date: Date) => void;
 }) {
 	const [title, setTitle] = useState(data.title);
 	const [description, setDescription] = useState(data.description);
@@ -39,7 +41,7 @@ export default function Tile({
 					onChange={(e: React.FormEvent<HTMLInputElement>) => {
 						setTitle(e.currentTarget.value);
 						setDate(new Date());
-
+						updateDate(data.id, date);
 					}}
 				/>
 				<TextArea
@@ -49,9 +51,9 @@ export default function Tile({
 					onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
 						setDescription(e.currentTarget.value);
 						setDate(new Date());
-						
+						updateDate(data.id, date);
 					}}
-          onClick={()=>setCharacterCountVisible(true)}
+					onClick={() => setCharacterCountVisible(true)}
 				/>
 				<div
 					className={`${
