@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./scss/entry.scss";
+import Tile from "./components/Tile";
+import IconButton from "./components/buttons/IconButton";
+import PlusIcon from "../src/icons/plus.svg";
+import Modal from "./components/Modal";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const data = {
+		id: 1,
+		title: "Title",
+		description: "Description",
+		created_at: new Date(),
+		updated_at: new Date(),
+	};
+
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	return (
+		<>
+			<div className="header">
+				<h1>Idea board</h1>
+				<IconButton onClick={() => setIsModalOpen(true)} iconSrc={PlusIcon} />
+			</div>
+			<div className="board">
+				<div className="column">
+					<h2>Work</h2>
+					<Tile data={data} />
+					<Tile data={data} />
+					<Tile data={data} />
+				</div>
+				<div className="column">
+					<h2>Personal</h2>
+					<Tile data={data} />
+					<Tile data={data} />
+					<Tile data={data} />
+				</div>
+			</div>
+			{isModalOpen && (
+				<Modal handleCloseButtonClick={() => setIsModalOpen(false)} />
+			)}
+		</>
+	);
 }
 
 export default App;

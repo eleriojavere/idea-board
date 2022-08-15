@@ -1,0 +1,48 @@
+.modal-overlay {
+	background-color: gray;
+	opacity: 0.7;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.modal {
+	padding: 40px 80px;
+	border-radius: 8px;
+	position: absolute;
+	z-index: 1;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	label {
+		margin-bottom: 8px;
+
+		&:not(.first-child) {
+			margin-top: 8px;
+		}
+	}
+
+	input {
+		padding: 8px;
+	}
+
+	.text-button {
+		background-color: rgb(43, 176, 43);
+		color: white;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	.close-button {
+		position: absolute;
+		right: 40px;
+		top: 24px;
+		cursor: pointer;
+	}
+}

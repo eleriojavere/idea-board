@@ -1,0 +1,33 @@
+@import "components/tile.scss";
+@import "components/board.scss";
+@import "components/modal.scss";
+
+@import "buttons/icon-button.scss";
+@import "buttons/text-button.scss";
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px 24px;
+
+	.header {
+		display: flex;
+		align-items: center;
+		.icon-button {
+			margin-left: 16px;
+		}
+	}
+
+	@media screen and (max-width: 484px) {
+		margin-left: auto;
+		margin-right: auto;
+		padding: 8px 8px;
+	}
+}

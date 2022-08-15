@@ -1,0 +1,32 @@
+.tile {
+	border-radius: 8px;
+	border: 2px solid pink;
+	padding: 16px 24px;
+	margin-bottom: 8px;
+	position: relative;
+
+	h2 {
+		color: rgb(254, 129, 214);
+	}
+
+	.date {
+		opacity: 0.5;
+		font-size: 12px;
+	}
+
+	.icon-button {
+		position: absolute;
+		right: 8px;
+		width: 20px;
+		height: 20px;
+
+		img {
+			height: 12px;
+			width: 12px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
