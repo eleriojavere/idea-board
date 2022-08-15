@@ -5,27 +5,33 @@ import IconButton from "./components/buttons/IconButton";
 import PlusIcon from "../src/icons/plus.svg";
 import Modal from "./components/Modal";
 
-export type Data = {
-	id?: number;
+export type Idea = {
+	id: number;
 	title: string;
 	description: string;
 	created_at: Date;
 	updated_at?: Date;
 };
+
 function App() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [ideasArray, setIdeasArray] = useState<Data[]>([]);
+	const [ideasArray, setIdeasArray] = useState<Idea[]>([]);
+	const maxCharacters = 140;
 
-	const addToIdeas = ({ ...data }: Data) => {
+	const addToIdeas = ({ ...data }: Idea) => {
 		setIdeasArray((prevData) => [
 			...prevData,
 			{
-				id: ideasArray.length,
+				id: data.id,
 				title: data.title,
 				description: data.description,
 				created_at: data.created_at,
 			},
 		]);
+	};
+
+	const handleDeleteIdea = (id: number) => {
+		setIdeasArray(ideasArray.filter((idea) => idea.id !== id));
 	};
 
 	return (
@@ -36,13 +42,22 @@ function App() {
 			</div>
 			<div className="board">
 				{ideasArray.map((idea) => {
-					return <Tile key={`${idea.id}-${idea.title}`} data={idea} />;
+					return (
+						<Tile
+							maxCharacters={maxCharacters}
+							key={`${idea.id}-${idea.title}`}
+							data={idea}
+							deleteIdea={(id: number) => handleDeleteIdea(id)}
+						/>
+					);
 				})}
 			</div>
 			{isModalOpen && (
 				<Modal
+					maxCharacters={maxCharacters}
+					ideasArray={ideasArray}
 					handleCloseButtonClick={() => setIsModalOpen(false)}
-					handleSaveForm={(data: Data) => {
+					handleSaveForm={(data: Idea) => {
 						addToIdeas(data);
 						setIsModalOpen(false);
 					}}

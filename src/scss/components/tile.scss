@@ -5,8 +5,25 @@
 	margin-bottom: 8px;
 	position: relative;
 
-	h2 {
-		color: rgb(254, 129, 214);
+	.inputs {
+		display: flex;
+		flex-direction: column;
+
+		.h2 {
+			color: rgb(254, 129, 214);
+			font-size: 20px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		input {
+			border: none;
+		}
+
+		textarea {
+			border: none;
+			min-height: 100px;
+		}
 	}
 
 	.date {
@@ -15,18 +32,37 @@
 	}
 
 	.icon-button {
-		position: absolute;
-		right: 8px;
-		width: 20px;
-		height: 20px;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+		justify-content: center;
+		align-items: center;
+		z-index: 1;
 
 		img {
 			height: 12px;
 			width: 12px;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
+		}
+	}
+
+	.delete-button {
+		position: absolute;
+		right: 8px;
+	}
+
+	.edit-button {
+		position: absolute;
+		right: 40px;
+	}
+
+	.characters-count {
+		color: rgb(254, 129, 214);
+		font-size: 12px;
+		margin-top: 8px;
+		opacity: 0;
+
+		&.visible {
+			opacity: 1;
 		}
 	}
 }
