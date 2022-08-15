@@ -6,7 +6,7 @@ import PlusIcon from "../src/icons/plus.svg";
 import Modal from "./components/Modal";
 
 export type Data = {
-	id: number;
+	id?: number;
 	title: string;
 	description: string;
 	created_at: Date;
