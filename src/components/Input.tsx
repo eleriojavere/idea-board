@@ -5,6 +5,7 @@ export default function Input({
 	className,
 	value,
 	autoFocus,
+	ariaLabel,
 }: {
 	type?: string;
 	name: string;
@@ -12,6 +13,7 @@ export default function Input({
 	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 	value?: string;
 	autoFocus?: boolean;
+	ariaLabel?: string;
 }) {
 	return (
 		<>
@@ -22,6 +24,7 @@ export default function Input({
 				type={type || "text"}
 				name={name}
 				value={value}
+				aria-label={ariaLabel}
 			></input>
 		</>
 	);

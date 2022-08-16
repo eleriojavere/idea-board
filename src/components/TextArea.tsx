@@ -5,6 +5,7 @@ export default function TextArea({
 	value,
 	maxLength,
 	onClick,
+	ariaLabel,
 }: {
 	type?: string;
 	name: string;
@@ -13,6 +14,7 @@ export default function TextArea({
 	onClick?: () => void;
 	value?: string;
 	maxLength: number;
+	ariaLabel?: string;
 }) {
 	return (
 		<>
@@ -23,6 +25,7 @@ export default function TextArea({
 				onClick={onClick}
 				value={value}
 				name={name}
+				aria-label={ariaLabel}
 			></textarea>
 		</>
 	);

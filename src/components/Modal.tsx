@@ -29,6 +29,7 @@ export default function Modal({
 				<h2>Create new idea</h2>
 				<Label>Title</Label>
 				<Input
+					ariaLabel="title"
 					autoFocus
 					name="title"
 					onChange={(e: React.FormEvent<HTMLInputElement>) => {
@@ -37,6 +38,7 @@ export default function Modal({
 				/>
 				<Label>Description</Label>
 				<TextArea
+					ariaLabel="description"
 					maxLength={maxCharacters}
 					className="description"
 					name="description"

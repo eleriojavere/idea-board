@@ -9,6 +9,7 @@ type ButtonProps = {
 	successColor?: boolean;
 	activeButtonId?: number;
 	id?: number;
+	altText?: string;
 };
 
 export default function IconButton({
@@ -20,15 +21,16 @@ export default function IconButton({
 	children,
 	activeButtonId,
 	id,
+	altText,
 }: ButtonProps) {
-
 	return (
 		<button
 			onClick={() => onClick(id)}
 			className={`icon-button ${dangerColor ? "danger" : ""} ${
 				successColor ? "success" : ""
-			} ${className || ""} ${activeButtonId === id ? "is-active" : ""}`}>
-			<img alt="icon" src={iconSrc} />
+			} ${className || ""} ${activeButtonId === id ? "is-active" : ""}`}
+		>
+			<img alt={altText || "icon"} src={iconSrc} />
 			{children}
 		</button>
 	);

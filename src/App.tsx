@@ -100,6 +100,7 @@ function App() {
 					onClick={() => setIsModalOpen(true)}
 					iconSrc={require('./icons/plus.svg').default}
 					successColor
+					altText="create new icon"
 				/>
 			</div>
 			<div className="sorting">
