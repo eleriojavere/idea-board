@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import IconButton from "./buttons/IconButton";
-import MinusIcon from "../icons/minus.svg";
-
 import { Idea } from "../App";
 import Input from "./Input";
 import TextArea from "./TextArea";
@@ -28,7 +26,7 @@ export default function Tile({
 			<IconButton
 				className="delete-button"
 				dangerColor
-				iconSrc={MinusIcon}
+				iconSrc={require('../icons/minus.svg').default}
 				onClick={() => deleteIdea(data.id)}
 			/>
 

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./scss/entry.scss";
 import Tile from "./components/Tile";
 import IconButton from "./components/buttons/IconButton";
-import PlusIcon from "../src/icons/plus.svg";
-import ArrowIcon from "../src/icons/arrow.svg";
 import Modal from "./components/Modal";
 
 export type Idea = {
@@ -100,7 +98,7 @@ function App() {
 				<h1>Idea board</h1>
 				<IconButton
 					onClick={() => setIsModalOpen(true)}
-					iconSrc={PlusIcon}
+					iconSrc={require('./icons/plus.svg').default}
 					successColor
 				/>
 			</div>
@@ -112,7 +110,7 @@ function App() {
 						setActiveButtonId(id);
 						toggleSortAlphabetically();
 					}}
-					iconSrc={ArrowIcon}
+					iconSrc={require('./icons/arrow.svg').default}
 				>
 					Sort alphabetically{" "}
 					{sortAlphaBethicallyAscending ? "ascending" : "descending"}
@@ -124,7 +122,7 @@ function App() {
 						setActiveButtonId(id);
 						toggleSortByDate();
 					}}
-					iconSrc={ArrowIcon}
+					iconSrc={require('./icons/arrow.svg').default}
 				>
 					Sort by date {sortDateAscending ? "ascending" : "descending"}
 				</IconButton>
